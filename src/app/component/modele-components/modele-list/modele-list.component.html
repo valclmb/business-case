@@ -1,0 +1,18 @@
+<section class="container">
+  <a href="" routerLink="/admin">< Retour à l'interface admin</a>
+  <h2>Liste des modeles</h2>
+  <button class="btn btn-success my-3" routerLink="add">Ajouter un modèle</button>
+  <table class="table table-striped ">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">nom Modele</th>
+      <th scope="col">nom Marque</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr app-modele *ngFor="let m of modeles" [modele]="m"></tr>
+    </tbody>
+  </table>
+</section>
+

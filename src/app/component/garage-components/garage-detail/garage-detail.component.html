@@ -1,0 +1,21 @@
+<section class="container">
+  <a href="" routerLink="/garage">< Retour à la liste des garages</a>
+  <div class="container border border-dark p-5">
+    <h1 class="mb-5" >{{garage.nomGarage}} <span>ID : {{garage.id}}</span></h1>
+    <p><strong>Propriétaire :</strong> {{garage.user.nom}} {{garage.user.prenom}}</p>
+    <p><strong>Numéro de telephone :</strong> {{garage.numTel}}</p>
+    <p><strong>Adresse ligne 1 :</strong> {{garage.adresseLigne1}}</p>
+    <p *ngIf="garage.adresseLigne2"><strong>Adresse ligne 2 :</strong> {{garage.adresseLigne2}}</p>
+    <p><strong>Code postal :</strong> {{garage.codePostal}}</p>
+    <p><strong>Ville :</strong> {{garage.ville}}</p>
+  </div>
+  <div class="text-center mt-3">
+    <button class="btn btn-danger mr-3"><strong>Supprimer</strong></button>
+    <button class="btn btn-info" (click)="delete()"><strong>Modifier</strong></button>
+  </div>
+</section>
+
+
+
+
+

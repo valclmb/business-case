@@ -1,0 +1,35 @@
+<section class="container ">
+  <a href="" routerLink="/garage">< Retour à la liste des garages</a>
+  <h1 class="mb-3">Ajouter un garage</h1>
+  <form [formGroup]="myForm" (ngSubmit)="addUser()" class=" border border-dark p-5">
+    <div>
+      <label for="username">Pseudo</label>
+      <input id="username" type="text" formControlName="username">
+    </div>
+    <div>
+      <label for="nom">Nom</label>
+      <input id="nom" type="text" formControlName="nom" autofocus>
+    </div>
+    <div>
+      <label for="prenom">Prénom</label>
+      <input id="prenom" type="text" formControlName="prenom">
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email">
+    </div>
+    <div>
+      <label for="password">Mot de passe</label>
+      <input id="password" type="password" formControlName="password">
+    </div>
+    <div>
+      <label for="numTel">Numéro de téléphone</label>
+      <input id="numTel" type="tel" formControlName="numTel">
+    </div>
+    <div>
+      <label for="numeroSiret">Numéro de Siret</label>
+      <input id="numeroSiret" type="text" formControlName="numeroSiret">
+    </div>
+    <button class="btn btn-success mt-3" type="submit">Ajouter</button>
+  </form>
+</section>

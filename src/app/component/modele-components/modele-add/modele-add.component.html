@@ -1,0 +1,18 @@
+<section class="container ">
+  <a href="" routerLink="/modele">< Retour à la liste des modèles</a>
+  <h1 class="mb-3">Ajouter une modèle</h1>
+  <form [formGroup]="myForm" (ngSubmit)="addModele()" class=" border border-dark p-5">
+    <div>
+      <label for="nomModele">Nom du modèle</label>
+      <input id="nomModele" type="text" formControlName="nomModele" autofocus>
+    </div>
+    <div>
+      <label for="Marque">Marque</label>
+        <select id="Marque">
+          <option *ngFor="let m of marques" [value]="m.id">{{m.nomMarque}}</option>
+        </select>
+
+    </div>
+    <button class="btn btn-success mt-3" type="submit">Ajouter</button>
+  </form>
+</section>

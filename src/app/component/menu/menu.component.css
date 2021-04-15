@@ -1,0 +1,89 @@
+header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  height: 80px;
+  z-index : 5;
+}
+
+
+.border{
+  border-bottom:solid 1px black;
+}
+
+img#search,
+img#perso,
+img#fleche {
+  width: 35px;
+  cursor:pointer;
+}
+img#search{
+  width: 45px;
+  padding: 5px;
+}
+
+img#perso:hover
+{
+border-bottom: 2px solid black;
+}
+
+h1{
+  margin-right: -10%;
+  cursor: pointer;
+}
+
+h1 span {
+  font-size: 25px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+#searchLogoDiv {
+  font-size: 40px;
+  padding: 0;
+}
+
+
+#perso {
+  height : 40px;
+
+}
+
+.mL{
+  margin-left:490px;
+}
+.hide{
+  display: none;
+}
+
+
+section#recherche {
+  position: sticky;
+  top: 80px;
+  margin: 0 auto;
+  padding-top: 5px;
+  height: 60px;
+  width: 720px;
+  background-color:white;
+  z-index: 3;
+  border-radius: 50px;
+}
+
+
+section#recherche div select {
+  font-size: 18px;
+  margin: 0 10px;
+  appearance: none;
+  border:none;
+  border-bottom:1px solid black;
+
+}
+
+
+input{
+  border:1px solid black;
+  border-radius: 50px;
+  padding-left: 10px;
+}
+
+
+

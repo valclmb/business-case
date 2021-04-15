@@ -1,0 +1,11 @@
+<section class="container">
+  <a href="" routerLink="/modele">< Retour à la liste des modèles</a>
+  <div class="container border border-dark p-5">
+    <h1 class="mb-3" > {{modele.nomModele}} <span>ID : {{modele.id}}</span></h1>
+    <p><strong>Marque : </strong>{{modele.marque.nomMarque}}</p>
+  </div>
+  <div class="text-center mt-3">
+    <button class="btn btn-danger mr-3" (click)="delete()"><strong>Supprimer</strong></button>
+    <button class="btn btn-info"><strong>Modifier</strong></button>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+<section class="container">
+  <a href="" routerLink="/admin">< Retour à l'interface admin</a>
+<h2>Liste des garages</h2>
+  <button class="btn btn-success my-3" routerLink="add">Ajouter un garage</button>
+<table class="table table-striped" >
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">nom</th>
+    <th scope="col">numTel</th>
+    <th scope="col">adresse ligne 1</th>
+    <th scope="col">adresse ligne 2</th>
+    <th scope="col">codePostal</th>
+    <th scope="col">ville</th>
+    <th scope="col">propriétaire</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr app-garage *ngFor="let g of garages" [garage]="g"></tr>
+  </tbody>
+</table>
+
+</section>
+

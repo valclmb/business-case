@@ -1,0 +1,13 @@
+article{
+  background-color: #D8E1E9;
+
+}
+article:hover{
+  border-left:3px solid #6a7f91;
+
+  transition: border 0.1s;
+}
+:host{
+  cursor: pointer;
+}
+

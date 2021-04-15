@@ -1,0 +1,40 @@
+<div class="containre">
+  <div class="row">
+    <div class="col-9">
+
+      <div class="card">
+
+        <div class="card">
+
+          <div class="card-body">
+            <h5 class="card-title">Connexion</h5>
+            <div *ngIf="errorMessage" class="text-center text-danger">{{errorMessage}}</div>
+
+            <form (ngSubmit)="onSubmit()" [formGroup]="formUser">
+
+              <input type="text" class="form-control" placeholder="nom d'utilisateur" formControlName="username" autofocus/>
+<!--                [(ngModel)]="user.username-->
+
+
+              <input type="password" class="form-control" placeholder="mdp" formControlName="password" autofocus/>
+<!--                     [(ngModel)]="user.password-->
+
+
+              <button type="submit">Se connecter</button>
+
+            </form>
+
+            <div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+

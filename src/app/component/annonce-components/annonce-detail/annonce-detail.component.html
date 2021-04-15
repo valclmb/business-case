@@ -1,0 +1,63 @@
+<h1 class="text-center">{{annonce.titre}}</h1>
+
+<section id="annoncephoto" class="container d-flex justify-content-around py-5">
+  <img src="../../../../assets/img/fiatfront.jpg" alt="Fiat 500F de face"/>
+  <img src="../../../../assets/img/fiatback.jpg" alt="Fiat 500F de dos"/>
+</section>
+<div></div>
+<section id="description" class="container">
+  <article class="row mt-5 ml-0 justify-content-between align-items-start">
+    <section class="row col-7">
+      <h2 class="col-12 my-5">Critères</h2>
+      <div class="row col-12 justify-content-between ml-0">
+        <div class="col-4">
+          <h3>Marque</h3>
+          <p>{{annonce.modele['marque']['nomMarque']}}</p>
+        </div>
+        <div class="col-4">
+          <h3>Modèle</h3>
+          <p>{{annonce.modele['nomModele']}}</p>
+        </div>
+        <div class="col-4">
+          <h3>Couleur</h3>
+          <p>{{annonce.couleur}}</p>
+        </div>
+        <div class="col-4">
+          <h3>Etat</h3>
+          <p>{{annonce.etatVehicule}} {{annonce.etatVehicule2}}</p>
+        </div>
+        <div class="col-4">
+          <h3>Kilometrage</h3>
+          <p>{{annonce.kilometrage}}</p>
+        </div>
+        <div class="col-4">
+          <h3>Carburant</h3>
+          <p>{{essence}}</p>
+        </div>
+      </div>
+      <div class="ml-3">
+       <p>{{annonce.description}}</p>
+      </div>
+    </section>
+    <section id="refannonce" class="col-5">
+      <h3 class="text-center my-5">
+        Référence de l'annonce :
+        <span class="font-weight-bold">{{annonce.reference}}</span>
+      </h3>
+      <div>
+
+      </div>
+
+       <a class="bouton">
+          Acheter : {{annonce.prix | currency:'EUR':'symbol': '.0':'fr'}}
+       </a>
+
+
+
+
+    </section>
+  </article>
+</section>
+
+
+

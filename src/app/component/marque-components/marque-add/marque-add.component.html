@@ -1,0 +1,11 @@
+<section class="container ">
+  <a href="" routerLink="/marque">< Retour à la liste des marques</a>
+<h1 class="mb-3">Ajouter une marque</h1>
+  <form [formGroup]="myForm" (ngSubmit)="addMarque()" class=" border border-dark p-5">
+<div>
+  <label for="nomMarque">Nom de la marque</label>
+  <input id="nomMarque" type="text" formControlName="nomMarque" autofocus>
+</div>
+  <button class="btn btn-success mt-3" type="submit">Ajouter</button>
+  </form>
+</section>

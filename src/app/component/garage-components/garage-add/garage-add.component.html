@@ -1,0 +1,37 @@
+<section class="container ">
+  <a href="" routerLink="/garage">< Retour à la liste des garages</a>
+  <h1 class="mb-3">Ajouter un garage</h1>
+  <form [formGroup]="myForm" (ngSubmit)="addGarage()" class=" border border-dark p-5">
+    <div>
+      <label for="nomGarage">Nom du garage</label>
+      <input id="nomGarage" type="text" formControlName="nomGarage" autofocus>
+    </div>
+    <div>
+      <label for="numTel">Numéro de téléphone</label>
+      <input id="numTel" type="text" formControlName="numTel">
+    </div>
+    <div>
+      <label for="adresseLigne1">Adresse ligne 1</label>
+      <input id="adresseLigne1" type="text" formControlName="adresseLigne1">
+    </div>
+    <div>
+      <label for="adresseLigne2">Adresse ligne 2</label>
+      <input id="adresseLigne2" type="text" formControlName="adresseLigne2">
+    </div>
+    <div>
+      <label for="codePostal">Code Postal</label>
+      <input id="codePostal" type="text" formControlName="codePostal">
+    </div>
+    <div>
+      <label for="ville">Ville</label>
+      <input id="ville" type="text" formControlName="ville">
+    </div>
+    <div>
+      <label for="user">User</label>
+      <select id="user" formControlName="id">
+        <option *ngFor="let u of users" [value]="u.id">{{u.nom}}{{u.prenom}}</option>
+      </select>
+    </div>
+    <button class="btn btn-success mt-3" type="submit">Ajouter</button>
+  </form>
+</section>
