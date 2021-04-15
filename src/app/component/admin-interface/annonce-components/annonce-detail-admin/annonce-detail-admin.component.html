@@ -1,0 +1,22 @@
+<section class="container">
+  <a href="" routerLink="/marque">< Retour à la liste des marques</a>
+  <div class="container border border-dark p-5">
+    <h1 class="mb-3" > {{annonce.titre}} <span>ID : {{annonce.id}}</span></h1>
+    <p><strong>Référence : </strong>{{annonce.reference}}</p>
+    <p><strong>Marque et modèle :</strong> {{annonce.modele['marque']['nomMarque']}} {{annonce.modele['nomModele']}}</p>
+    <p><strong>Prix : </strong>{{annonce.prix}}</p>
+    <p><strong>Couleur : </strong>{{annonce.couleur}}</p>
+    <p><strong>Etat Véhicule : </strong>{{annonce.etatVehicule}}</p>
+    <p *ngIf="annonce.etatVehicule2"><strong>Etat Véhicule 2 : </strong>{{annonce.etatVehicule2}}</p>
+    <p><strong>Carburant : </strong>{{annonce.typeCarburant?'Essence':'Diesel'}}</p>
+    <p><strong>Description : </strong>{{annonce.description}}</p>
+
+
+
+
+  </div>
+  <div class="text-center mt-3">
+    <button class="btn btn-danger mr-3" (click)="delete()"><strong>Supprimer</strong></button>
+    <button class="btn btn-info"><strong>Modifier</strong></button>
+  </div>
+</section>

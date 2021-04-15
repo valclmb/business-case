@@ -1,0 +1,7 @@
+<th scope="row">{{ annonce.id }}</th>
+<td><a href="" [routerLink]="[annonce.id]">{{ annonce.reference }}</a></td>
+<td>{{annonce.modele['marque']['nomMarque']}} {{annonce.modele['nomModele']}} </td>
+<td>{{annonce.titre}}</td>
+<td>{{annonce.prix | currency:'EUR':'symbol': '.0':'fr'}}</td>
+<td>{{annonce.kilometrage}} km</td>
+<td>{{annonce.garage['nomGarage']}}</td>

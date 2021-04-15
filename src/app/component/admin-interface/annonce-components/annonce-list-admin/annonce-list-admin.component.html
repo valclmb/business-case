@@ -1,0 +1,21 @@
+<section class="container">
+  <a href="" routerLink="/admin">< Retour à l'interface admin</a>
+  <h2>Liste des annonces</h2>
+  <button class="btn btn-success my-3" routerLink="add">Ajouter une annonce</button>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Référence</th>
+      <th scope="col">Marque et Modèle</th>
+      <th scope="col">Titre de l'annonce</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Kilometrage</th>
+      <th scope="col">Garage</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr app-annonce-admin *ngFor="let a of annonces" [annonce]="a"></tr>
+    </tbody>
+  </table>
+</section>

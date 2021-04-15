@@ -1,0 +1,15 @@
+<section class="container">
+  <a href="" routerLink="/user">< Retour à la liste des utilisateurs</a>
+  <div class="container border border-dark p-5">
+    <h1 class="mb-3" > {{user.nom}} {{user.prenom}} <span>ID : {{user.id}}</span></h1>
+    <p><strong>Pseudo : </strong>{{user.username}}</p>
+    <p><strong>Email : </strong>{{user.email}}</p>
+    <p><strong>Role : </strong>{{user.roles}}</p>
+    <p><strong>Numéro de Téléphone : </strong>{{user.numTel}}</p>
+    <p><strong>Numéro de Siret : </strong>{{user.numeroSiret}}</p>
+  </div>
+  <div class="text-center mt-3">
+    <button class="btn btn-danger mr-3" (click)="delete()"><strong>Supprimer</strong></button>
+    <button class="btn btn-info"><strong>Modifier</strong></button>
+  </div>
+</section>
