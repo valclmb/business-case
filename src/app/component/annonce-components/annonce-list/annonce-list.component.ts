@@ -23,6 +23,7 @@ export class AnnonceListComponent implements OnInit {
 
   getAnnonces(): void {
   this.as.getAnnonces().subscribe(r => this.annonces = r['hydra:member'] );
+
   }
 
 }

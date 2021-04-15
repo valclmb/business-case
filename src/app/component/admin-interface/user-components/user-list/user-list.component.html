@@ -1,0 +1,21 @@
+<section class="container">
+  <a href="" routerLink="/admin">< Retour à l'interface admin</a>
+  <h2>Liste des utilisateurs</h2>
+  <button class="btn btn-success my-3" routerLink="add">Ajouter un utilisateur</button>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Pseudo</th>
+      <th scope="col">Nom prénom</th>
+      <th scope="col">Email</th>
+      <th scope="col">Roles</th>
+      <th scope="col">Numéro de téléphone</th>
+      <th scope="col">Numéro de Siret</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr app-user *ngFor="let u of users" [user]="u"></tr>
+    </tbody>
+  </table>
+</section>

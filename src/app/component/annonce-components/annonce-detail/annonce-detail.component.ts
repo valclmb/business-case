@@ -18,14 +18,8 @@ export class AnnonceDetailComponent implements OnInit {
   constructor(private activeR: ActivatedRoute, private as: AnnonceService, private router: Router) { }
 
   ngOnInit(): void {
-    const id =  Number(this.activeR.snapshot.paramMap.get('id'));
+    const id = Number(this.activeR.snapshot.paramMap.get('id'));
     this.as.getOne(id).subscribe(r => this.annonce = r);
-
-    if (this.annonce.typeCarburant) {
-      this.essence = 'Essence';
-    }else{
-      this.essence = 'Diesel';
-    }
   }
 
 }
