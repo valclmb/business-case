@@ -6,12 +6,11 @@
       <label for="nomModele">Nom du modèle</label>
       <input id="nomModele" type="text" formControlName="nomModele" autofocus>
     </div>
-    <div>
+    <div formGroupName="marque">
       <label for="Marque">Marque</label>
-        <select id="Marque">
-          <option *ngFor="let m of marques" [value]="m.id">{{m.nomMarque}}</option>
+        <select id="Marque" formControlName="id">
+          <option [value]="m.id" *ngFor="let m of marques" >{{m.nomMarque}}</option>
         </select>
-
     </div>
     <button class="btn btn-success mt-3" type="submit">Ajouter</button>
   </form>

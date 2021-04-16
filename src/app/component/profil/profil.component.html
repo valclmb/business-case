@@ -1,0 +1,38 @@
+<section class="container">
+  <div class="row justify-content-between">
+    <div class="col-4">
+      <h1 class="mb-3">Mon Profil</h1>
+      <div class="card">
+        <h2 class="card-title my-3 text-center">{{connectedUser.prenom}} {{connectedUser.nom}}</h2>
+        <div class="card-body">
+          <p><strong>Pseudo : </strong>{{connectedUser.username}}</p>
+          <p><strong>Email : </strong>{{connectedUser.email}}</p>
+          <p><strong>Numéro de Téléphone : </strong>{{connectedUser.numTel}}</p>
+          <p><strong>Numéro de Siret : </strong>{{connectedUser.numeroSiret}}</p>
+          <p *ngIf="connectedUser.roles.includes('ADMIN')">Rôle admin</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-7">
+      <div class="d-flex align-items-center">
+        <h1 class="mb-3 mr-3">Mes Garages</h1>
+        <button class="btn btn-success">+</button>
+      </div>
+      <!--  Accordéon -->
+      <ngb-accordion>
+        <ngb-panel *ngFor="let value of garages" [title]="value.nomGarage">
+          <ng-template ngbPanelContent>
+            <p>{{value.adresseLigne1}}</p>
+            <p *ngIf="value.adresseLigne2">{{value.adresseLigne2}}</p>
+            <p>{{value.codePostal}} {{value.ville}}</p>
+            <p>{{value.numTel}}</p>
+            <button class="btn btn-danger mr-3">Supprimer</button>
+            <button class="btn btn-info">Modifier</button>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+
+    </div>
+  </div>
+</section>

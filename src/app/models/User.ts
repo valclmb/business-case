@@ -1,3 +1,5 @@
+import {Garage} from './Garage';
+
 export interface User {
   id?: number;
   nom?: string;
@@ -8,5 +10,12 @@ export interface User {
   password?: string;
   numTel?: string;
   numeroSiret?: string;
+  garages?: [
+    {
+      id: number;
+      nomGarage: string;
+
+    }
+  ];
 }
 

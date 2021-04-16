@@ -1,8 +1,7 @@
-export interface Modele {
+export class Modele {
     id?: number;
     nomModele?: string;
-    marque?: {
-      id?: number;
-      nomMarque?: string;
+    marque: {
+      nomMarque: string;
     };
 }

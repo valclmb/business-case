@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class UserAddComponent implements OnInit {
 
   myForm: FormGroup;
+  adminRole: string;
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router ) { }
 
   ngOnInit(): void {
@@ -23,15 +24,26 @@ export class UserAddComponent implements OnInit {
         username: ['', Validators.required],
         password: ['', Validators.required],
         numTel: ['', Validators.required],
-        numeroSiret: ['', Validators.required]
+        numeroSiret: ['', Validators.required],
+        roles: [this.adminRole]
       });
   }
 
   addUser(): void {
     if (this.myForm.valid) {
+
+      if (this.myForm.value.roles){
+        this.myForm.value.roles = 'ROLES_ADMIN';
+      } else {
+        this.myForm.value.roles = 'ROLES_USER';
+      }
+
       this.userService.addUser(this.myForm.value).subscribe();
       this.router.navigate(['/user']);
+      console.log(this.myForm.value);
+
     }
+
 
   }
 

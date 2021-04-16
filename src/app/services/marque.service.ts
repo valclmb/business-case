@@ -9,7 +9,7 @@ import {Marque} from '../models/Marque';
 })
 export class MarqueService {
 
-  url = 'http://localhost:8000/api/marques';
+  url = 'http://127.0.0.1:8000/api/marques';
   constructor(private http: HttpClient) { }
 
   getMarques(): Observable<Marque[]>{

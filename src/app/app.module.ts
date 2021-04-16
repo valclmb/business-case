@@ -33,6 +33,9 @@ import { UserDetailComponent } from './component/admin-interface/user-components
 import { AnnonceAdminComponent } from './component/admin-interface/annonce-components/annonce-admin/annonce-admin.component';
 import { AnnonceListAdminComponent } from './component/admin-interface/annonce-components/annonce-list-admin/annonce-list-admin.component';
 import { AnnonceDetailAdminComponent } from './component/admin-interface/annonce-components/annonce-detail-admin/annonce-detail-admin.component';
+import {JwtModule} from '@auth0/angular-jwt';
+import {AuthGuardService} from './guards/auth.guard';
+import { ProfilComponent } from './component/profil/profil.component';
 
 const routes: Routes = [
   // Annonce
@@ -41,16 +44,19 @@ const routes: Routes = [
   {path: 'annonce/:id', component: AnnonceDetailComponent},
   // Admin
   {path: 'admin', component: AdminComponent},
+  {path: 'login', component: LoginComponent},
+  // Profil utilisateur
+  {path: 'profil', component: ProfilComponent},
   // Annonce
   {path: 'annonce_admin', component: AnnonceListAdminComponent},
-  // {path: 'marque/add', component: MarqueAddComponent},
+  {path: 'annonce_admin/add', component: AnnonceListAdminComponent},
   {path: 'annonce_admin/:id', component: AnnonceDetailAdminComponent},
   // Marque
   {path: 'marque', component: MarqueListComponent},
   {path: 'marque/add', component: MarqueAddComponent},
   {path: 'marque/:id', component: MarqueDetailComponent},
   // Garage
-  {path: 'garage', component: GarageListComponent},
+  {path: 'garage', component: GarageListComponent, canActivate: [AuthGuardService]},
   {path: 'garage/add', component: GarageAddComponent},
   {path: 'garage/:id', component: GarageDetailComponent},
   // Modèle
@@ -65,6 +71,9 @@ const routes: Routes = [
   {path: '', redirectTo: '/annonce', pathMatch: 'full'},
 ];
 
+export function getToken() {
+  return localStorage.getItem('auth-token');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,7 +102,8 @@ const routes: Routes = [
     UserDetailComponent,
     AnnonceAdminComponent,
     AnnonceListAdminComponent,
-    AnnonceDetailAdminComponent
+    AnnonceDetailAdminComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
@@ -104,9 +114,14 @@ const routes: Routes = [
     BrowserAnimationsModule,
     HeadroomModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    JwtModule.forRoot( {config: {
+      tokenGetter: getToken
+      }})
   ],
-  providers: [],
+  providers: [
+    AuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 <section class="container">
   <a href="" routerLink="/marque">< Retour à la liste des marques</a>
-  <div class="container border border-dark p-5">
+  <div class="container border border-dark rounded p-5">
     <h1 class="mb-3" > {{annonce.titre}} <span>ID : {{annonce.id}}</span></h1>
     <p><strong>Référence : </strong>{{annonce.reference}}</p>
     <p><strong>Marque et modèle :</strong> {{annonce.modele['marque']['nomMarque']}} {{annonce.modele['nomModele']}}</p>
@@ -10,9 +10,7 @@
     <p *ngIf="annonce.etatVehicule2"><strong>Etat Véhicule 2 : </strong>{{annonce.etatVehicule2}}</p>
     <p><strong>Carburant : </strong>{{annonce.typeCarburant?'Essence':'Diesel'}}</p>
     <p><strong>Description : </strong>{{annonce.description}}</p>
-
-
-
+    <p>{{annonce.photos}}</p>
 
   </div>
   <div class="text-center mt-3">

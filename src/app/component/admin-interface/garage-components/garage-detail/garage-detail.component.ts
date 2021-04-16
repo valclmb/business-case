@@ -16,7 +16,7 @@ export class GarageDetailComponent implements OnInit {
   ngOnInit(): void {
     const id = this.aR.snapshot.paramMap.get('id');
 
-    this.gs.getOne(id).subscribe(r => this.garage = r);
+    this.gs.getOne(Number(id)).subscribe(r => this.garage = r);
   }
 
   delete(): void {

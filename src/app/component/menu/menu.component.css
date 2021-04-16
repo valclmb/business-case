@@ -6,14 +6,11 @@ header {
   z-index : 5;
 }
 
-
 .border{
   border-bottom:solid 1px black;
 }
 
-img#search,
-img#perso,
-img#fleche {
+img {
   width: 35px;
   cursor:pointer;
 }

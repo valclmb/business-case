@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from '../models/User';
+import {JwtHelperService} from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import {User} from '../models/User';
 export class AuthService {
 
   url = 'http://127.0.0.1:8000/';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public jwtHelper: JwtHelperService) { }
 
   login(credentials: User): Observable<any>{
     return this.http.post(this.url + 'login_check', {
@@ -23,7 +24,13 @@ export class AuthService {
     const httpOptions = {
       headers: new HttpHeaders({ Authorization: 'Bearer ' + token})
     };
-    console.log(httpOptions);
     return this.http.get(this.url + 'api/user', httpOptions);
+  }
+
+  public isAuthenticated(): boolean {
+    // Check whether the token is expired and return
+    const token = window.sessionStorage.getItem('auth-token');
+    // true or false
+    return !this.jwtHelper.isTokenExpired(token);
   }
 }

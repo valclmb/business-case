@@ -15,10 +15,11 @@ import {Observable} from 'rxjs';
 export class GarageAddComponent implements OnInit {
 
   myForm: FormGroup;
-  users: User[] = [];
+  users: User[] ;
   constructor(private fb: FormBuilder, private garageService: GaragesService, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
+
     this.myForm = this.fb.group(
       {
         nomGarage: ['Garage du 8eme', Validators.required],
@@ -27,21 +28,17 @@ export class GarageAddComponent implements OnInit {
         adresseLigne2: [''],
         codePostal: ['69008', Validators.required],
         ville: ['Lyon', Validators.required],
-        user: this.fb.group(
-          {id: 1 }
-        )
+        user: this.fb.group({id:  [''], })
       });
     this.userService.getUser().subscribe(m => this.users = m['hydra:member']);
 
   }
 
   addGarage(): void {
-
     if (this.myForm.valid) {
-
-
       this.garageService.addGarage(this.myForm.value).subscribe();
       this.router.navigate(['/garage']);
+
     }
 
 }

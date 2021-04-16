@@ -15,7 +15,7 @@ export class GaragesService {
   getGarages(): Observable<Garage[]>{
     return this.http.get<Garage[]>(this.url);
   }
-  getOne(id: string): Observable<Garage>{
+  getOne(id: number): Observable<Garage>{
     return this.http.get<Garage>(`${this.url}/${id}`);
   }
 

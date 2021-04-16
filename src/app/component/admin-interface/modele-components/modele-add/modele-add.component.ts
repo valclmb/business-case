@@ -4,7 +4,7 @@ import {ModeleService} from '../../../../services/modele.service';
 import {Router} from '@angular/router';
 import {MarqueService} from '../../../../services/marque.service';
 import {Marque} from '../../../../models/Marque';
-import {Modele} from '../../../../models/Modele';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-modele-add',
@@ -23,7 +23,7 @@ export class ModeleAddComponent implements OnInit {
       {
         nomModele: ['', Validators.required],
         marque: this.fb.group(
-          {id : 1 }
+          {id : 5 }
         )
       });
     this.getMarques();

@@ -26,10 +26,10 @@
       <label for="ville">Ville</label>
       <input id="ville" type="text" formControlName="ville">
     </div>
-    <div>
+    <div formGroupName="user">
       <label for="user">User</label>
       <select id="user" formControlName="id">
-        <option *ngFor="let u of users" [value]="u.id">{{u.nom}}{{u.prenom}}</option>
+        <option *ngFor="let u of users" [value]="u.id">{{u.nom}}</option>
       </select>
     </div>
     <button class="btn btn-success mt-3" type="submit">Ajouter</button>

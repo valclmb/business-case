@@ -12,6 +12,7 @@ import { HeadroomModule } from '@ctrl/ngx-headroom';
 import {User} from '../../models/User';
 import {AuthService} from '../../services/auth.service';
 import {TokenStorageService} from '../../services/token-storage.service';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -28,30 +29,22 @@ import {TokenStorageService} from '../../services/token-storage.service';
       })),
       transition('show => hide', animate('300ms ease-out')),
       transition('hide => show', animate('300ms ease-in')),
-    ]),
-
-   trigger('loginAnimation', [
-     state('show', style({
-       opacity: 1
-     })),
-     state('hide', style({
-       opacity: 0,
-       width: '0px'
-     })),
-     transition('show => hide', animate('150ms ease-out')),
-     transition('hide => show', animate('150ms ease-in')),
-   ]),
+    ])
   ]
 })
 export class MenuComponent implements OnInit {
 
-  showLogin = false;
   showSearch = false;
+  connectedUser?: User;
+  connected = '/profil';
 
-
-  constructor() { }
+  constructor(private token: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
+    this.connectedUser = this.token.getUser();
+    if (window.sessionStorage.length === 0){
+      this.connected = '/login';
+    }
   }
 
   onSubmit(): void {}
@@ -59,11 +52,15 @@ export class MenuComponent implements OnInit {
   stateSearch(): string {
     return this.showSearch ? 'show' : 'hide';
   }
-  stateLogin(): string {
-    return this.showLogin ? 'show' : 'hide';
-  }
   toggleSearch(): void{
     this.showSearch = !this.showSearch;
   }
 
+  signOut(): void {
+    this.token.signOut();
+    this.router.navigate(['/annonce']).then(() => {
+      window.location.reload();
+    });
+
+  }
 }

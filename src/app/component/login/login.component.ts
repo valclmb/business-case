@@ -3,6 +3,7 @@ import {AuthService} from '../../services/auth.service';
 import {TokenStorageService} from '../../services/token-storage.service';
 import {User} from '../../models/User';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +12,13 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+
   formUser: FormGroup;
   errorMessage = '';
   user: User;
 
-  constructor(private fb: FormBuilder, private authS: AuthService, private tokenStorage: TokenStorageService) { }
+
+  constructor(private fb: FormBuilder, private authS: AuthService, private tokenStorage: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
     this.formUser = this.fb.group({
@@ -36,6 +39,7 @@ export class LoginComponent implements OnInit {
         {
           this.tokenStorage.saveUser(then);
         });
+        this.router.navigate(['/annonce']);
       }
     );
   }

@@ -1,14 +1,14 @@
 <section class="container ">
-  <a href="" routerLink="/garage">< Retour à la liste des garages</a>
-  <h1 class="mb-3">Ajouter un garage</h1>
+  <a href="" routerLink="/garage">< Retour à la liste des utilisateurs</a>
+  <h1 class="mb-3">Ajouter un utilisateur</h1>
   <form [formGroup]="myForm" (ngSubmit)="addUser()" class=" border border-dark p-5">
     <div>
       <label for="username">Pseudo</label>
-      <input id="username" type="text" formControlName="username">
+      <input id="username" type="text" formControlName="username" autofocus>
     </div>
     <div>
       <label for="nom">Nom</label>
-      <input id="nom" type="text" formControlName="nom" autofocus>
+      <input id="nom" type="text" formControlName="nom" >
     </div>
     <div>
       <label for="prenom">Prénom</label>
@@ -29,6 +29,10 @@
     <div>
       <label for="numeroSiret">Numéro de Siret</label>
       <input id="numeroSiret" type="text" formControlName="numeroSiret">
+    </div>
+    <div>
+      <label for="roles">Administrateur</label>
+      <input id="roles" type="checkbox" formControlName="roles">
     </div>
     <button class="btn btn-success mt-3" type="submit">Ajouter</button>
   </form>
