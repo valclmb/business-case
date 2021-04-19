@@ -27,7 +27,7 @@
             <p *ngIf="value.adresseLigne2">{{value.adresseLigne2}}</p>
             <p>{{value.codePostal}} {{value.ville}}</p>
             <p>{{value.numTel}}</p>
-            <button class="btn btn-danger mr-3">Supprimer</button>
+            <button class="btn btn-danger mr-3" (click)="delete(value.id)">Supprimer</button>
             <button class="btn btn-info">Modifier</button>
           </ng-template>
         </ngb-panel>

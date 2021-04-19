@@ -1,6 +1,9 @@
 <section class="containerPerso">
   <h1 class="mb-5" data-aos="fade-right" >Liste des annonces</h1>
-  <app-annonce   *ngFor="let a of annonces" [annonce]="a"></app-annonce>
+  <div class="row">
+    <app-annonce  class="col-4" *ngFor="let a of annonces" [annonce]="a"></app-annonce>
+  </div>
+
 </section>
 
 

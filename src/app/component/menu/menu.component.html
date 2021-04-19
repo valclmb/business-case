@@ -1,15 +1,15 @@
 <ngx-headroom>
-  <header [ngClass]="{'border':showSearch}" class="d-flex align-items-center justify-content-between">
-    <div>
-      <h1 routerLink="/annonce" class="ml-3" id="logo">AutoCaz<span>Vintage</span></h1>
+  <header class="d-md-flex align-items-center justify-content-between">
+    <h1 routerLink="/annonce" class="ml-3 text-center" id="logo">AutoCaz<span>Vintage</span></h1>
+    <div class="d-md-none">TEST</div>
+    <ul class="d-md-flex align-items-center justify-content d-none">
+      <li class="mr-2 " *ngIf="connectedUser"> {{connectedUser.nom}} {{connectedUser.prenom}}</li>
+      <li><img src="../../../assets/img/compte.png" id="perso" class="mr-2 py-1" alt="profil" [routerLink]=[connected]></li>
+      <li><img src="../../../assets/img/loupe.png" id="search" class="mr-2 " alt="rechercher" (click)="toggleSearch()"></li>
+      <li><img *ngIf="connectedUser" src="../../../assets/img/exit.png" alt="deconnexion" class="mr-3" (click)="signOut()"></li>
+      <li><button  *ngIf="connectedUser.roles == 'ROLES_ADMIN'" id="admin" class="btn btn-danger mr-3" routerLink="admin">A</button></li>
+    </ul>
 
-    </div>
-    <div class="d-flex align-items-center justify-content">
-      <div class="mr-2" *ngIf="connectedUser"> {{connectedUser.nom}} {{connectedUser.prenom}}</div>
-      <img src="../../../assets/img/compte.png" id="perso" class="mr-2 py-1" [routerLink]=[connected]>
-      <img src="../../../assets/img/loupe.png" id="search"  class="mr-2" (click)="toggleSearch()">
-      <img *ngIf="connectedUser" src="../../../assets/img/exit.png" alt="deconnexion" class="mr-3" (click)="signOut()">
-    </div>
   </header>
 
 

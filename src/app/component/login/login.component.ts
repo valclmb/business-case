@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
   formUser: FormGroup;
   errorMessage = '';
   user: User;
+  showPassword = false;
+  textPassword = 'Afficher';
 
 
   constructor(private fb: FormBuilder, private authS: AuthService, private tokenStorage: TokenStorageService, private router: Router) { }
@@ -42,6 +44,17 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/annonce']);
       }
     );
+  }
+
+
+  passwordToggle(): void {
+    this.showPassword = !this.showPassword;
+    if (this.showPassword){
+      this.textPassword = 'Masquer';
+    } else {
+      this.textPassword = 'Afficher';
+    }
+
   }
 }
 

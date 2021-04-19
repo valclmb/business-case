@@ -2,4 +2,10 @@ div{
   background-color: #D8E1E9;
   padding: 20px;
 }
+img {
+  width: 20px;
+}
 
+p{
+  cursor: pointer;
+}

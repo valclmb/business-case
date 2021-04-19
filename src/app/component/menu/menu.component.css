@@ -6,9 +6,6 @@ header {
   z-index : 5;
 }
 
-.border{
-  border-bottom:solid 1px black;
-}
 
 img {
   width: 35px;
@@ -74,7 +71,6 @@ section#recherche div select {
   border-bottom:1px solid black;
 
 }
-
 
 input{
   border:1px solid black;

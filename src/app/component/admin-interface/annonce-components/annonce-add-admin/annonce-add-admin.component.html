@@ -1,0 +1,64 @@
+<section class="container ">
+  <a href="" routerLink="/annonce">< Retour à la liste des annonces</a>
+  <h1 class="mb-3">Ajouter une annonce</h1>
+  <form [formGroup]="myForm"  (ngSubmit)="addAnnonce()" class=" border border-dark p-5">
+    <div>
+      <label for="titre">Titre de l'annonce</label>
+      <input id="titre" type="text" formControlName="titre" autofocus>
+    </div>
+    <div>
+      <label for="reference">Reference de l'annonce</label>
+      <input id="reference" type="text" formControlName="reference">
+    </div>
+    <div formGroupName="modele">
+      <label for="modele">Modèle</label>
+      <select id="modele" formControlName="id">
+        <option *ngFor="let m of modeles" [value]="m.id">{{m.marque.nomMarque}} {{m.nomModele}}</option>
+      </select>
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <input type="text" id="description"  formControlName="description">
+    </div>
+    <div>
+      <label for="kilometrage">Kilometrage </label>
+      <input id="kilometrage" type="number" formControlName="kilometrage">
+    </div>
+    <div>
+      <label for="etatVehicule">Etat du véhicule</label>
+      <input id="etatVehicule" type="text" formControlName="etatVehicule">
+    </div>
+    <div>
+      <label>Carburant : </label>
+      <input type="radio" id="essence" name="typeCarburant" value="true" formControlName="typeCarburant" checked>
+      <label for="essence"> Essence</label>
+      <input type="radio" id="diesel" name="typeCarburant" formControlName="typeCarburant" value="false" checked>
+      <label for="diesel">Diesel </label>
+    </div>
+    <div>
+      <label for="couleur">Couleur</label>
+      <select id="couleur" formControlName="couleur">
+        <option *ngFor="let c of couleurs" [value]="c">{{c}}</option>
+      </select>
+    </div>
+    <div>
+      <label for="prix">Prix</label>
+      <input id="prix" type="text" formControlName="prix"><span class="ml-1">€</span>
+    </div>
+<!--    <div formGroupName="photos">-->
+<!--      <label for="photos">Chemin de la photo</label>-->
+<!--      <input id="photos" type="number" formControlName="chemin">-->
+<!--    </div>-->
+    <div formGroupName="garage">
+      <label for="garages">Garages</label>
+      <select id="garages" formControlName="id">
+        <option *ngFor="let g of garages" [value]="g.id">{{g.nomGarage}}</option>
+      </select>
+
+    </div>
+
+
+
+    <button class="btn btn-success mt-3" type="submit">Ajouter</button>
+  </form>
+</section>

@@ -21,9 +21,15 @@ export class ProfilComponent implements OnInit {
   ngOnInit(): void {
     this.connectedUser = this.token.getUser();
 
-    for(const value of this.connectedUser.garages.values()){
+    for (const value of this.connectedUser.garages.values()){
       this.garages.push(value);
     }
+    console.log(this.garages)
+  }
+  delete(garage): void {
+    this.garageS.delete(garage).subscribe();
+    this.connectedUser = this.token.getUser();
+    console.log(this.connectedUser);
   }
 
 

@@ -5,9 +5,10 @@
     <div class="d-flex justify-content-center">
       <form (ngSubmit)="onSubmit()" [formGroup]="formUser">
         <input class="d-block mb-3" type="text" placeholder="nom d'utilisateur" formControlName="username" autofocus/>
-        <input class="d-block" type="password" placeholder="mdp" formControlName="password" autofocus/>
-        <div class="text-center">
-          <button class="bouton mt-3" type="submit">Se connecter</button>
+        <input class="d-block mb-3" [type]="showPassword ? 'text' : 'password'" placeholder="mdp" formControlName="password" autofocus/>
+        <p class="text-center" (click)="passwordToggle()">{{textPassword}} le mot de passe</p>
+        <div class="text-center pt-0">
+          <button class="bouton" type="submit">Se connecter</button>
         </div>
       </form>
     </div>

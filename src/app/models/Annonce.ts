@@ -9,9 +9,10 @@ export interface Annonce {
   garage?: string;
   couleur?: string;
   etatVehicule?: string;
-  etatVehicule2?: string;
   photos?: [
-    string,
+    {
+      chemin: string;
+    }
   ];
   reference?: string;
 }

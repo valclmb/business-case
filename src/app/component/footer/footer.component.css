@@ -1,13 +1,14 @@
 footer{
+  /*Style du footer*/
   background-color:#D8E1E9;
-  padding: 50px 0 150px 0;
+  padding: 50px 0;
   margin-top: 100px;
-  height: auto;
+
+;
 }
 .containerfooter {
   width: 90%;
-  margin: auto;
-
+  margin: 25px auto;
 }
 
 h1{
@@ -45,19 +46,7 @@ footer article:nth-of-type(3) img {
   margin-right: 15px;
 }
 
-
-footer::before{
-  content: "";
-  background-color:#D8E1E9;
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  transform: rotate(45deg);
-  margin: -70px auto;
-  left: 0;
-  right: 0;
-}
-
+/* LOGO RESEAUX SOCIAUX*/
 a img{
   width:30px;
 }

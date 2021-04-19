@@ -25,4 +25,8 @@ export class AnnonceService {
     return this.http.delete<Annonce>(`${this.url}/${id}`);
   }
 
+  addAnnonce(annonce: Annonce): Observable<Annonce> {
+    return this.http.post<Annonce>(this.url, annonce);
+  }
+
 }

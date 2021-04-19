@@ -1,6 +1,8 @@
-
-/*div{*/
-/*  position: absolute;*/
-/*  top: 150px;*/
-/*  right: 0;*/
+div {
+  position : absolute;
+  right: 5px;
+  top : 100px;
+}
+/*button {*/
+/*  position : fixed;*/
 /*}*/

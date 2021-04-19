@@ -1,34 +1,17 @@
-
-<article  *ngIf="oddEven % 2 === 0"
+<article
           data-aos="fade-right"
           data-aos-anchor-placement="top-bottom"
-          class="row position-relative mx-3 mx-md-0 justify-content-center  mb-5 px-3 py-4 ">
-  <div class="col-md-4">
-    <img src='../../../../assets/img/fiatfront.jpg' alt="Fiat 500f" class=" img-fluid mr-5 img-annonce">
+          class=" position-relative mx-3 mx-md-0 justify-content-center  mb-5 px-3 py-4 ">
+  <div >
+    <img src='../../../../assets/img/fiatfront.jpg' alt="Fiat 500f" class=" img-fluid mb-3 mr-5 img-annonce">
   </div>
-  <div class="col-md-8">
+  <div>
     <span class="iconify icone position-absolute" data-icon="mdi-light:heart" data-inline="false"></span>
     <h2 class="mb-3">{{annonce.titre}}</h2>
     <p class="mb-3">{{annonce.description}}</p>
-    <p class="font-weight-bold">{{annonce.garage['id']}}</p>
+    <p class="mb-3">{{annonce.prix | currency:'EUR':'symbol': '.0':'fr' }}</p>
     <div class="d-flex justify-content-between align-items">
     </div>
   </div>
 </article>
 
-<article *ngIf="oddEven % 2 === 1"
-         data-aos="fade-left"
-         data-aos-anchor-placement="top-bottom"
-         class="row position-relative mx-3 mx-md-0 justify-content-center  mb-5 px-3 py-4 ">
-  <div class="col-md-4">
-    <img src='../../../../assets/img/fiatfront.jpg' alt="Fiat 500f" class=" img-fluid mr-5 img-annonce">
-  </div>
-  <div class="col-md-8">
-    <span class="iconify icone position-absolute" data-icon="mdi-light:heart" data-inline="false"></span>
-    <h2 class="mb-3">{{annonce.titre}}</h2>
-    <p class="mb-3">{{annonce.description}}</p>
-    <p class="font-weight-bold">{{annonce.garage['id']}}</p>
-    <div class="d-flex justify-content-between align-items">
-    </div>
-  </div>
-</article>

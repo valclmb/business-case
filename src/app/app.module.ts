@@ -36,6 +36,8 @@ import { AnnonceDetailAdminComponent } from './component/admin-interface/annonce
 import {JwtModule} from '@auth0/angular-jwt';
 import {AuthGuardService} from './guards/auth.guard';
 import { ProfilComponent } from './component/profil/profil.component';
+import { AnnonceAddAdminComponent } from './component/admin-interface/annonce-components/annonce-add-admin/annonce-add-admin.component';
+import {AuthAdminGuardService} from './guards/authAdmin.guard';
 
 const routes: Routes = [
   // Annonce
@@ -43,35 +45,35 @@ const routes: Routes = [
   // {path: 'annonce/add', component: IncidentAddComponent},
   {path: 'annonce/:id', component: AnnonceDetailComponent},
   // Admin
-  {path: 'admin', component: AdminComponent},
+  {path: 'admin', component: AdminComponent, canActivate: [AuthAdminGuardService]},
   {path: 'login', component: LoginComponent},
   // Profil utilisateur
-  {path: 'profil', component: ProfilComponent},
+  {path: 'profil', component: ProfilComponent, canActivate: [AuthGuardService]},
   // Annonce
-  {path: 'annonce_admin', component: AnnonceListAdminComponent},
-  {path: 'annonce_admin/add', component: AnnonceListAdminComponent},
-  {path: 'annonce_admin/:id', component: AnnonceDetailAdminComponent},
+  {path: 'annonce_admin', component: AnnonceListAdminComponent, canActivate: [AuthAdminGuardService]},
+  {path: 'annonce_admin/add', component: AnnonceAddAdminComponent, canActivate: [AuthAdminGuardService]},
+  {path: 'annonce_admin/:id', component: AnnonceDetailAdminComponent, canActivate: [AuthAdminGuardService]},
   // Marque
-  {path: 'marque', component: MarqueListComponent},
-  {path: 'marque/add', component: MarqueAddComponent},
-  {path: 'marque/:id', component: MarqueDetailComponent},
+  {path: 'marque', component: MarqueListComponent, canActivate: [AuthAdminGuardService]},
+  {path: 'marque/add', component: MarqueAddComponent, canActivate: [AuthAdminGuardService]},
+  {path: 'marque/:id', component: MarqueDetailComponent, canActivate: [AuthAdminGuardService]},
   // Garage
-  {path: 'garage', component: GarageListComponent, canActivate: [AuthGuardService]},
-  {path: 'garage/add', component: GarageAddComponent},
-  {path: 'garage/:id', component: GarageDetailComponent},
+  {path: 'garage', component: GarageListComponent, canActivate: [AuthAdminGuardService]},
+  {path: 'garage/add', component: GarageAddComponent, canActivate: [AuthAdminGuardService]},
+  {path: 'garage/:id', component: GarageDetailComponent, canActivate: [AuthAdminGuardService]},
   // Modèle
-  {path: 'modele', component: ModeleListComponent},
-  {path: 'modele/add', component: ModeleAddComponent},
-  {path: 'modele/:id', component: ModeleDetailComponent},
+  {path: 'modele', component: ModeleListComponent, canActivate: [AuthAdminGuardService] },
+  {path: 'modele/add', component: ModeleAddComponent, canActivate: [AuthAdminGuardService]},
+  {path: 'modele/:id', component: ModeleDetailComponent, canActivate: [AuthAdminGuardService]},
   // Utilisateur
-  {path: 'user', component: UserListComponent},
-  {path: 'user/add', component: UserAddComponent},
-  {path: 'user/:id', component: UserDetailComponent},
+  {path: 'user', component: UserListComponent, canActivate: [AuthAdminGuardService]},
+  {path: 'user/add', component: UserAddComponent, canActivate: [AuthAdminGuardService]},
+  {path: 'user/:id', component: UserDetailComponent, canActivate: [AuthAdminGuardService]},
 
   {path: '', redirectTo: '/annonce', pathMatch: 'full'},
 ];
 
-export function getToken() {
+export function getToken(): string {
   return localStorage.getItem('auth-token');
 }
 @NgModule({
@@ -103,7 +105,8 @@ export function getToken() {
     AnnonceAdminComponent,
     AnnonceListAdminComponent,
     AnnonceDetailAdminComponent,
-    ProfilComponent
+    ProfilComponent,
+    AnnonceAddAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -120,7 +123,8 @@ export function getToken() {
       }})
   ],
   providers: [
-    AuthGuardService
+    AuthGuardService,
+    AuthAdminGuardService
   ],
   bootstrap: [AppComponent]
 })

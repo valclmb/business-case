@@ -3,11 +3,13 @@ article{
 
 }
 article:hover{
-  border-left:3px solid #6a7f91;
-
+  border-top:3px solid #6a7f91;
   transition: border 0.1s;
 }
 :host{
   cursor: pointer;
+}
+img {
+  width: 400px;
 }
 
